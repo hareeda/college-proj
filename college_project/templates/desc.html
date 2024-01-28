@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block metadescription %}
+    Details about the department is given in this page
+{% endblock %}
+
+{% block title %}
+    {% if department %}
+        {{ department.name }} - Apollo University
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+        <div class="mx-auto">
+            {% if department %}
+                <img class="my_image" src="{{ department.image.url }}" alt="{{ department.name }}" style="width:1110px;">
+            </div>
+            <br>
+            <div>
+                <h1 class="text-center my_title">{{ department.name }}</h1><br>
+                <p class="text-justify">{{ department.description }}</p>
+            </div>
+        {% endif %}
+{% endblock %}

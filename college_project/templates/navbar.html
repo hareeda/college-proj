@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item {% if request.path == 'college_app:home' %}active{% endif %}">
+          <a class="nav-link" href="{% url 'college_app:home' %}"><i class="fa-solid fa-house"></i>
+            <span class="sr-only">(current)</span></a>
+      </li>
+      <!-- <li class="nav-item {% if request.path == 'college_app:login' %}active{% endif %}">
+          <a class="nav-link" href="{% url 'college_app:login' %}">Login<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item {% if request.path == 'college_app:register' %}active{% endif %}">
+          <a class="nav-link" href="{% url 'college_app:register' %}">Register<span class="sr-only">(current)</span></a>
+      </li> -->
+      <li class="nav-item dropdown {% if 'college_app' in request.path %}active{% endif %}">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Department
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          {% for dept in links %}
+          <a class="dropdown-item" href="{{dept.get_url}}">{{dept.name}}</a>
+          <div class="dropdown-divider"></div>
+          {% endfor %}
+        </div>
+      </li>
+    </ul>
+    <div class="form-inline my-2 my-lg-0">
+      {% if user.is_authenticated %}
+        <div class="text-center mx-auto">
+          <p class="navbar-text my-0"><b>Hello, {{user.username}}</b></p>
+        </div>
+        <a href="{% url 'college_app:logout' %}"  style="margin-left:15px"><span class="material-symbols-outlined">
+          logout
+          </span></a>
+      {% else %}
+        <a href="{% url 'college_app:register' %}" class="btn btn-outline-secondary">Register</a>
+        <a href="{% url 'college_app:login' %}"  style="margin-left: 15px;"><span class="material-symbols-outlined">
+          login
+          </span></a>
+      {% endif %}
+    </div>
+  </div>
+</nav>
+

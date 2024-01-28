@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block metadescription %}
+    Welcome to Appolo University your stepping stones to the future
+{% endblock %}
+
+{% block title %}
+    Success!
+{% endblock %}
+
+{% block content %}
+<div style="height: 100vh;">
+    <h2 style="margin-bottom: 50px;">Enquiry Submitted Successfully!</h2>
+    <div class="container">
+        <div class="text-center" style="margin-top: 20px;">
+            Return to <a href="{% url 'college_app:home' %}">home</a> page
+        </div>
+    </div>
+</div>
+{% endblock %}

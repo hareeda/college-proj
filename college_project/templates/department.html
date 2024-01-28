@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block metadescription %}
+    {% if department %}
+        {{ department.description|truncatewords:155 }}
+    {% else %}
+        Welcome to Muforl store to buy different things online
+    {% endif %}
+{% endblock %}
+
+{% block title %}
+    {% if department %}
+        {{ department.name }} - Muforl Store
+    {% else %}
+        Welcome to Appolo University your stepping stones to the future
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="mx-auto" style="height: 100vh;">
+    {% if department %}
+        <img class="my_image" src="{{ department.image.url }}" alt="{{ department.name }}" >
+    </div>
+    <br>
+    <div>
+        <h1 class="text-center my_title">{{ department.name }}</h1>
+        <p class="text-justify">{{ department.description }}</p>
+    </div>
+    {% else %}
+        <div>
+            <img class="my_image my_image_padding" src="{% static 'img/banner.png' %}" alt="our products" width="1110 px" >
+        </div>
+        <br>
+        <div>
+            <h1 class="text-center my_title">Introduction</h1><br>
+            <p class="text-justify">Welcome to Apollo University of Science and Arts, where innovation meets intellect, and creativity converges with knowledge. At Apollo University, we pride ourselves on fostering a dynamic learning environment that transcends traditional boundaries, preparing our students for a future defined by cutting-edge advancements and a profound appreciation for the arts.
+
+            Nestled at the intersection of science and arts, our institution is committed to cultivating a well-rounded education that empowers individuals to excel in their chosen fields while embracing the multidimensional nature of human expression. Apollo University stands as a beacon of academic excellence, where curiosity is nurtured, and the pursuit of knowledge is fueled by a passion for discovery.
+            
+            As you embark on your educational journey with us, you'll discover a community of forward-thinking educators, dedicated to guiding you through a transformative learning experience. Our state-of-the-art facilities, coupled with a diverse and vibrant campus culture, create an atmosphere that encourages collaboration, critical thinking, and the development of skills that extend beyond the classroom.
+            
+            Whether you are drawn to the precision of the sciences or the boundless creativity of the arts, Apollo University is committed to providing a platform for your unique talents to flourish. Join us on a voyage of intellectual exploration and artistic expression, where the Apollo community is united in its pursuit of knowledge, innovation, and a shared vision for a brighter future.
+            
+            Welcome to Apollo University, where the pursuit of excellence is not just a goal but a way of life.
+            
+            <!-- <br><div class="text-center">
+                <a href="{% url 'college_app:register' %}" class="btn btn-success">Register</a> <a href="{% url 'college_app:login' %}" class="btn btn-success">Login</a>
+            </div> -->
+            </p><br><br>
+        </div>
+    {% endif %}
+{% endblock %}

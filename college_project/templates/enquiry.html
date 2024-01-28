@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block metadescription %}
+    Welcome to Appolo University, your stepping stones to the future
+{% endblock %}
+
+{% block title %}
+    Enquiry Form
+{% endblock %}
+
+{% block content %}
+<style>
+    .card-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Adjust as needed */
+    }
+
+    .card {
+        width: 500px; /* Adjust as needed */
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    input,
+    select,
+    textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+</style>
+
+    </style>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-5">
+                <div class="card-body">
+                    <h2 class="card-title">Enquiry Page</h2>
+            <form method="POST" action="{% url 'college_app:enquiry' %}">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" name="name" required><br>
+                </div>
+
+                <div class="form-group">
+                    <label for="dob">Date of Birth:</label><br>
+                    <input type="date" id="dob" name="dob" required><br>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">Age:</label><br>
+                    <input type="number" id="age" name="age" required><br>
+                </div>
+
+                <div class="form-group">
+                    <label for="gender">Gender:</label><br>
+                    <select id="gender" name="gender" required><br>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number:</label><br>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" required><br>
+                </div>
+                <div class="form-group">
+                    <label for="mailId">Email ID:</label><br>
+                    <input type="email" id="mailId" name="mailId" required><br>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address:</label><br>
+                    <textarea id="address" name="address" required></textarea><br>
+                </div>
+                <div class="form-group">
+                    <label for="departments">Department:</label><br>
+                    <select id="departments" name="department">
+                        <option value="">Select Department</option>
+                        {% for department in departments %}
+                            <option value="{{ department.id }}">{{ department.name }}</option>
+                        {% endfor %}
+                    </select><br>
+                </div>
+                
+                <div class="form-group">
+                    <label for="courses">Course:</label><br>
+                    <select id="courses" name="course">
+                        <option value="">Select Course</option>
+                        {% for course in courses %}
+                            <option value="{{ course.id }}">{{ course.name }}</option>
+                        {% endfor %}
+                    </select><br>
+                </div>
+                
+                <div class="form-group">
+                    <label for="purpose">Purpose:</label><br>
+                    <select id="purpose" name="purpose" required>
+                        <option value="enquiry">For Enquiry</option>
+                        <option value="order">Place Order</option>
+                        <option value="return">Return</option>
+                    </select><br>
+                </div>
+                <div class="form-group">
+                    <label>Materials Provide:</label>
+                    <input type="checkbox" id="notebook" name="materials" value="notebook">
+                    <label for="notebook">Debit Note Book</label>
+                
+                    <input type="checkbox" id="pen" name="materials" value="pen">
+                    <label for="pen">Documents</label>
+            
+                    <input type="checkbox" id="examPapers" name="materials" value="examPapers">
+                    <label for="examPapers">Exam Papers</label>
+
+                    <div class="button-section row mt-3">
+                        <div class="col">
+                            <input type="submit" class="btn btn-secondary btn-block" value="Submit">
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-secondary btn-block" onclick="logout()">Logout</button>
+                        </div>
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</div><br><br>
+{% endblock %}
+

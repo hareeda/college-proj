@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block metadescription %}
+    Welcome to Appolo University, your stepping stones to the future
+{% endblock %}
+
+{% block title %}
+    Welcome
+{% endblock %}
+
+{% block content %}
+<div class="container" style="height: 100vh;">
+    <div class="row">
+        <div>
+            <div class="mr-auto">
+                <br><h2 class="text-center" style="margin-bottom: 15px">
+                    Welcome {{user.username}}!
+                </h2><br>
+                <p class="text-justify">
+                    As you log in to Apollo University's online platform, you step into a realm of boundless opportunities and academic excellence. Here, your educational journey is not just a path but a transformative experience designed to empower you with knowledge, skills, and insights that will shape your future.
+
+                    At Apollo University, we believe in fostering a dynamic learning environment where curiosity thrives, creativity flourishes, and innovation knows no bounds. Whether you're embarking on a new academic endeavor, pursuing your passions, or charting your career path, our dedicated faculty and comprehensive resources are here to support you every step of the way.
+
+                    As you navigate through our platform, you'll discover a rich tapestry of courses, programs, and extracurricular activities tailored to your interests and aspirations. From cutting-edge research initiatives to vibrant student communities, Apollo University offers a holistic educational experience that extends beyond the confines of the classroom.
+
+                    We invite you to explore, engage, and excel as you embark on this remarkable journey with us. Together, let's unlock the doors to knowledge, seize the opportunities that lie ahead, and embrace the transformative power of education.
+
+                    Welcome to Apollo University – where your aspirations take flight, and your dreams become reality.
+
+                </p><br><p class="text-center"><b>If you have any enquiries let us know in the given <a href="{% url 'college_app:enquiry' %}">link</a> will reply to the enquiries within 2-3 business days.</b>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
